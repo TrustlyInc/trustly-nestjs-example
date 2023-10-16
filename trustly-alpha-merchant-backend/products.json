@@ -1,0 +1,27 @@
+[
+    {
+       "id":"2",
+       "title":"Cloudnova Flux",
+       "description":"Short runs, mixed sports",
+       "image":"cloudnova.png",
+       "quantity":0,
+       "price":80.0
+    },
+    {
+       "id":"3",
+       "title":"Cloudswift 3 AD",
+       "description":"All-day wear, everyday training",
+       "image":"cloudswift.png",
+       "quantity":0,
+       "price":53.0
+    },
+    {
+       "id":"4",
+       "title":"Cloud X 2 Shift",
+       "description":"Everyday training",
+       "image":"cloudx.png",
+       "quantity":0,
+       "price":75.0
+    }
+ ]
+ 
