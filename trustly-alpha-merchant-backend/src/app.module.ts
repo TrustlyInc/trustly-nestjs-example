@@ -2,8 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { RequestSignatureController } from './RequestSignature/request-signature.controller';
 import { RequestSignatureService } from './RequestSignature/request-signature.service';
 import { TransactionModule } from './transaction/transaction.module';
@@ -18,7 +16,7 @@ import { TransactionModule } from './transaction/transaction.module';
     }),
     TransactionModule
   ],
-  controllers: [AppController, RequestSignatureController],
-  providers: [AppService, RequestSignatureService],
+  controllers: [RequestSignatureController],
+  providers: [RequestSignatureService],
 })
 export class AppModule {}

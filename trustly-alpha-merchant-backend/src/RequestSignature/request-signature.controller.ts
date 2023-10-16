@@ -12,11 +12,6 @@ export class RequestSignatureController {
 
   ACCESS_KEY = this.configService.get<String>('ACCESS_KEY')
 
-  @Get('/signature')
-  getHello(): string {
-    return 'Hello Signature';
-  }
-
   @Post('/signature')
   @ApiParam({name: 'establish', required: true, schema: new EstablishDto() })
   @ApiCreatedResponse({

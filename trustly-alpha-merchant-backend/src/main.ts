@@ -9,10 +9,9 @@ async function bootstrap() {
   });
 
   const config = new DocumentBuilder()
-    .setTitle('Shop.On Simple Backend')
-    .setDescription('Simple backend to support Shop.On Demo App')
+    .setTitle('Alpha Merchante Backend Demonstration ')
+    .setDescription('Simple backend demonstrate how to integrate with Trustly')
     .setVersion('1.0')
-    .addTag('Shop.On')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
