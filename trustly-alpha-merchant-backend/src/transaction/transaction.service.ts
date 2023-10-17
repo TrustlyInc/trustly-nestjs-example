@@ -16,9 +16,9 @@ export class TransactionService {
     private readonly CAPTURE_TRANSACTION_TYPE = "3";
     private readonly CAPTURE_STATUS_COMPLETED = 4;
 
-    BASE_URL = this.configService.get<String>('BASE_URL')
-    USERNAME = this.configService.get<String>('USERNAME')
-    PASSWORD = this.configService.get<String>('PASSWORD')
+    BASE_URL = this.configService.get<String>('TRUSTLY_BASE_URL')
+    ACCESS_ID = this.configService.get<String>('ACCESS_ID')
+    ACCESS_KEY = this.configService.get<String>('ACCESS_KEY')
 
     requestConfig:AxiosRequestConfig = {
         headers: {
@@ -26,8 +26,8 @@ export class TransactionService {
           'accept': 'application/json',
         },
         auth: {
-          username: this.USERNAME as string,
-          password: this.PASSWORD as string
+          username: this.ACCESS_ID as string,
+          password: this.ACCESS_KEY as string
         },
       };
 
