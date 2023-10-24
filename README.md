@@ -11,11 +11,11 @@ Simple backend to demonstrate how to implement the endpoints to integrate with T
 
 ```bash
 # clone the repository
-$ git clone https://github.com/TrustlyInc/trustly-alpha-merchant-backend.git
+$ git clone https://github.com/TrustlyInc/trustly-nestjs-example.git
 ```
 
 ## Configuring Trustly API credentials
-Create `.development.env` file in `trustly-alpha-merchant-backend` app folder. In this file we need to declare the environment variables:
+Create `.development.env` file in `trustly-nestjs-example` app folder. In this file we need to declare the environment variables:
 - ACCESS_ID
 - ACCESS_KEY
 - BASE_URL
@@ -23,13 +23,13 @@ Create `.development.env` file in `trustly-alpha-merchant-backend` app folder. I
 ## Install dependencies
 ```bash
 # install dependencies
-$ cd trustly-alpha-merchant-backend && npm install
+$ cd trustly-nestjs-example && npm install
 ```
 
 ## Running the app
 ```bash
 # development
-$ cd trustly-alpha-merchant-backend && npm run start:dev
+$ cd trustly-nestjs-example && npm run start:dev
 ```
 
 ## Swagger
