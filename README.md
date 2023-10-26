@@ -27,13 +27,13 @@ In the `.development.env` file replace environment variables values:
 ## Install dependencies
 ```bash
 # install dependencies
-$ cd trustly-nestjs-example && npm install
+$ npm install
 ```
 
 ## Running the app
 ```bash
 # development
-$ cd trustly-nestjs-example && npm run start:dev
+$ npm run start:dev
 ```
 
 ## Swagger
