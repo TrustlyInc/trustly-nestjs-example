@@ -7,6 +7,10 @@
 
 Simple backend to demonstrate how to implement the endpoints to integrate with Trustly.
 
+## Requirements
+
+- node 16 or higher
+
 ## Clone the app
 
 ```bash
