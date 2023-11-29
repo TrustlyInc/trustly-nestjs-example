@@ -4,6 +4,7 @@ import {
   Post,
   RawBodyRequest,
   Req,
+  Res,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { ApiParam, ApiCreatedResponse } from '@nestjs/swagger';
@@ -11,6 +12,7 @@ import { RequestSignatureService } from './request-signature.service';
 import { EstablishDto } from '../Dtos/establish.dto';
 import { CustomerDto } from 'src/Dtos/customer.dto';
 import { AddressDto } from 'src/Dtos/address.dto';
+import { Response } from 'express';
 
 @Controller()
 export class RequestSignatureController {
@@ -28,8 +30,9 @@ export class RequestSignatureController {
   })
   createRequestSignature(
     @Body() establish: EstablishDto,
-    @Req() req: RawBodyRequest<Request>
-  ): string {
+    @Req() req: RawBodyRequest<Request>,
+    @Res() res: Response
+  ): object {
     let rawBody = req.rawBody;
 
     if (rawBody) {
@@ -47,9 +50,11 @@ export class RequestSignatureController {
       }
     }
 
-    return this.requestSignatureService.getRequestSignature(
-      establish,
-      this.ACCESS_KEY as string
+    return res.json(
+      this.requestSignatureService.getRequestSignature(
+        establish,
+        this.ACCESS_KEY as string
+      )
     );
   }
 }
