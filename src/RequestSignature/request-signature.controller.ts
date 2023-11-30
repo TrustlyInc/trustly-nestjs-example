@@ -9,9 +9,8 @@ import {
 import { ConfigService } from '@nestjs/config';
 import { ApiParam, ApiCreatedResponse } from '@nestjs/swagger';
 import { RequestSignatureService } from './request-signature.service';
+import { normalizeEstablishData } from './request-signature.utils';
 import { EstablishDto } from '../Dtos/establish.dto';
-import { CustomerDto } from 'src/Dtos/customer.dto';
-import { AddressDto } from 'src/Dtos/address.dto';
 import { Response } from 'express';
 
 @Controller()
@@ -33,21 +32,10 @@ export class RequestSignatureController {
     @Req() req: RawBodyRequest<Request>,
     @Res() res: Response
   ): object {
-    let rawBody = req.rawBody;
+    const rawBody = req.rawBody;
 
     if (rawBody) {
-      let json = JSON.parse(rawBody.toString());
-
-      if (json['customer.name']) {
-        let address = new AddressDto();
-        address.country = json['customer.address.country'];
-
-        let customer = new CustomerDto();
-        customer.name = json['customer.name'];
-        customer.address = address;
-
-        establish.customer = customer;
-      }
+      establish = normalizeEstablishData(establish, rawBody);
     }
 
     return res.json(

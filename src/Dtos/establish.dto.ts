@@ -47,3 +47,7 @@ export class EstablishDto {
     @ApiProperty()
     transactionId: any;
 }
+
+export interface EstablishDto {
+  [key: string]: string | object;
+}
