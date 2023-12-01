@@ -7,7 +7,7 @@ import { TransactionController } from './transaction.controller';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.development.env',
+      envFilePath: '.env',
     }),
     HttpModule,
   ],

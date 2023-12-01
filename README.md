@@ -19,11 +19,7 @@ $ git clone https://github.com/TrustlyInc/trustly-nestjs-example.git
 
 ## Configuring Trustly API credentials
 
-In the `.development.env` file replace environment variables values:
-
-- ACCESS_ID
-- ACCESS_KEY
-- BASE_URL
+Copy the `.env.example` file to a new `.env` file and fill out your environment variables.
 
 ## Install dependencies
 
