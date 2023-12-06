@@ -1,9 +1,4 @@
-import { VerificationDto } from 'src/Dtos/verification.dto';
 import { EstablishDto } from '../Dtos/establish.dto';
-import { CustomerDto } from 'src/Dtos/customer.dto';
-import { DriverLicenseDto } from 'src/Dtos/driveLicense.dto';
-import { AddressDto } from 'src/Dtos/address.dto';
-import { AccountDto } from 'src/Dtos/account.dto';
 
 const CryptoSignature = require('crypto');
 
@@ -77,72 +72,4 @@ export const generateSignature = (establishData: EstablishDto, accessKey: string
 
     const requestSignature = CryptoSignature.createHmac('sha1', accessKey).update(query).digest('base64');
     return requestSignature;
-}
-
-export const normalizeEstablishData = (establish: EstablishDto, rawBody: string) => {
-
-    if (rawBody) {
-        let json = JSON.parse(rawBody);
-
-        if (json['verification']) {
-            let verification = new VerificationDto();
-            verification.status = json['verification.status'];
-            verification.verifyCustomer = json['verification.verifyCustomer'];
-
-            establish.verification = verification;
-
-        }
-
-        if(json['customer.name']) {
-            let customer = new CustomerDto();
-
-            customer.customerId = json['customer.customerId'];
-            customer.externalId = json['customer.externalId'];
-            customer.name = json['customer.name'];
-            customer.vip = json['customer.vip'];
-            customer.taxId = json['customer.taxId'];
-
-
-            let driverLicense = new DriverLicenseDto();
-            driverLicense.number = json['customer.driverLicense.number'];
-            driverLicense.state = json['customer.driverLicense.state'];
-
-            customer.driverLicense = driverLicense;
-
-            let address = new AddressDto();
-            
-            address.address1 = json['customer.address.address1'];
-            address.address2 = json['customer.address.address2'];
-            address.city = json['customer.address.city'];
-            address.state = json['customer.address.state'];
-            address.zip = json['customer.address.zip'];
-            address.country = json['customer.address.country'];
-
-            customer.address = address;
-
-            customer.phone = json['customer.phone'];
-            customer.email = json['customer.email'];
-            customer.balance = json['customer.balance'];
-            customer.currency = json['customer.currency'];
-            customer.enrollDate = json['customer.enrollDate'];
-            customer.dateOfBirth = json['customer.dateOfBirth'];
-
-            establish.customer = customer;
-        }
-
-        if (json['account.name']) {
-            let account = new AccountDto();
-
-            account.nameOnAccount = json['account.nameOnAccount'];
-            account.name = json['account.name'];
-            account.type = json['account.type'];
-            account.profile = json['account.profile'];
-            account.accountNumber = json['account.accountNumber'];
-            account.routingNumber = json['account.routingNumber'];
-
-            establish.account = account;
-        }
-    }
-
-    return establish;
 }
