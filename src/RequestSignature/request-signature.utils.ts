@@ -1,4 +1,5 @@
 import { EstablishDto } from '../Dtos/establish.dto';
+import { convertDotNotationIntoNestedObject } from '../utils/normalize';
 
 const CryptoSignature = require('crypto');
 
@@ -72,4 +73,23 @@ export const generateSignature = (establishData: EstablishDto, accessKey: string
 
     const requestSignature = CryptoSignature.createHmac('sha1', accessKey).update(query).digest('base64');
     return requestSignature;
-}
+};
+
+export const normalizeEstablishData = (
+  establish: EstablishDto,
+  rawBody: Buffer
+) => {
+  // Remove dot notations
+  for (const key in establish) {
+    if (key.includes('.')) delete establish[key];
+  }
+
+  // Add as nested objects
+  const jsonBody = JSON.parse(rawBody.toString());
+  const objectLiteralBody = convertDotNotationIntoNestedObject(jsonBody);
+  for (const key in objectLiteralBody) {
+    establish[key] = objectLiteralBody[key];
+  }
+
+  return establish;
+};
