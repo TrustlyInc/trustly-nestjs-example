@@ -40,3 +40,9 @@ $ npm run start:dev
 ```
 http://localhost:8080/api
 ```
+
+# Contributing
+
+You can participate in this project by submitting bugs and feature requests in the [Issues](https://github.com/TrustlyInc/trustly-nestjs-example/issues) tab. Please, add [@lukevance](https://github.com/lukevance) as an assignee.
+
+If you are interested in fixing issues and contributing directly to the code base, feel free to open a Pull Request with your changes. Please, make sure to fulfill our [Pull Request Template](https://github.com/TrustlyInc/trustly-nestjs-example/blob/main/.github/pull_request_template.md) and add [@lukevance](https://github.com/lukevance) as code reviewer.
