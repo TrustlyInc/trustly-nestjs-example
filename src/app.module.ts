@@ -9,12 +9,12 @@ import { TransactionModule } from './transaction/transaction.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.development.env'
+      envFilePath: '.env',
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'client'),
     }),
-    TransactionModule
+    TransactionModule,
   ],
   controllers: [RequestSignatureController],
   providers: [RequestSignatureService],
