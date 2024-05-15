@@ -83,23 +83,14 @@ export const createSignatureQueryString = (establishData: EstablishDto) => {
   return searchParams.join('&');
 };
 
-export const generateSignature = (
-  establishData: EstablishDto,
-  accessKey: string
-) => {
+export const generateSignature = (establishData: EstablishDto, accessKey: string) => {
   const query = createSignatureQueryString(establishData);
-  const requestSignature = crypto
-    .createHmac('sha1', accessKey)
-    .update(query)
-    .digest('base64');
+  const requestSignature = crypto.createHmac('sha1', accessKey).update(query).digest('base64');
 
   return requestSignature;
 };
 
-export const normalizeEstablishData = (
-  establish: EstablishDto,
-  rawBody: Buffer
-) => {
+export const normalizeEstablishData = (establish: EstablishDto, rawBody: Buffer) => {
   // Remove dot notations
   for (const key in establish) {
     if (key.includes('.')) delete establish[key];

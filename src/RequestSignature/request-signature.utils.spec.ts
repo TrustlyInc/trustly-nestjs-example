@@ -106,13 +106,8 @@ describe('generateSignature', () => {
     };
     const expectedSignature = 'L/tBy40/WKaWNH0dcdp9j09cMqs=';
 
-    const queryString = createSignatureQueryString(
-      establishDataWithEmptyStrings
-    );
-    const signature = generateSignature(
-      establishDataWithEmptyStrings,
-      accessId
-    );
+    const queryString = createSignatureQueryString(establishDataWithEmptyStrings);
+    const signature = generateSignature(establishDataWithEmptyStrings, accessId);
 
     expect(queryString).not.toContain('transactionId=');
     expect(signature).toBe(expectedSignature);
@@ -125,13 +120,8 @@ describe('generateSignature', () => {
     };
     const expectedSignature = 'HrGQpg/NsPXmh+P9u37R121Rot0=';
 
-    const queryString = createSignatureQueryString(
-      establishDataWithNotIntendedData
-    );
-    const signature = generateSignature(
-      establishDataWithNotIntendedData,
-      accessId
-    );
+    const queryString = createSignatureQueryString(establishDataWithNotIntendedData);
+    const signature = generateSignature(establishDataWithNotIntendedData, accessId);
 
     expect(queryString).not.toContain('notIntendedData=');
     expect(signature).toBe(expectedSignature);
@@ -147,13 +137,8 @@ describe('generateSignature', () => {
     };
     const expectedSignature = 'HrGQpg/NsPXmh+P9u37R121Rot0=';
 
-    const queryString = createSignatureQueryString(
-      establishDataWithFalseBooleans
-    );
-    const signature = generateSignature(
-      establishDataWithFalseBooleans,
-      accessId
-    );
+    const queryString = createSignatureQueryString(establishDataWithFalseBooleans);
+    const signature = generateSignature(establishDataWithFalseBooleans, accessId);
 
     expect(queryString).not.toContain('recurrence.automaticCapture=');
     expect(signature).toBe(expectedSignature);
@@ -168,9 +153,7 @@ describe('generateSignature', () => {
       },
     };
 
-    const queryString = createSignatureQueryString(
-      establishDataWithNestedObjects
-    );
+    const queryString = createSignatureQueryString(establishDataWithNestedObjects);
 
     expect(queryString).toContain('customer.dateOfBirth=2000-01-01');
   });
@@ -187,9 +170,7 @@ describe('generateSignature', () => {
       },
     };
 
-    const queryString = createSignatureQueryString(
-      establishDataWithNestedObjects
-    );
+    const queryString = createSignatureQueryString(establishDataWithNestedObjects);
 
     expect(queryString).toContain('customer.address.country=BR');
   });
