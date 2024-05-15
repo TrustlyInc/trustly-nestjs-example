@@ -5,7 +5,7 @@ export class AddressDto {
   address1: string;
 
   @ApiProperty()
-  address2: string;
+  address2?: string;
 
   @ApiProperty()
   city: string;

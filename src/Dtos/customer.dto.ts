@@ -7,28 +7,28 @@ export class CustomerDto {
   address: AddressDto;
 
   @ApiProperty()
-  balance: any;
+  balance?: string;
 
   @ApiProperty()
   createdAt: number;
 
   @ApiProperty()
-  currency: any;
+  currency?: string;
 
   @ApiProperty()
   customerId: string;
 
   @ApiProperty()
-  dateOfBirth: number;
+  dateOfBirth: string;
 
   @ApiProperty()
-  driverLicense: DriverLicenseDto;
+  driverLicense?: DriverLicenseDto;
 
   @ApiProperty()
   email: string;
 
   @ApiProperty()
-  enrollDate: number;
+  enrollDate: number; // Unix Timestamp
 
   @ApiProperty()
   externalId: string;
@@ -49,5 +49,5 @@ export class CustomerDto {
   updatedAt: number;
 
   @ApiProperty()
-  vip: string;
+  vip?: string;
 }

@@ -7,46 +7,46 @@ import { CustomerDto } from './customer.dto';
 
 export class EstablishDto {
   @ApiProperty()
-  accessId: any;
+  accessId: string;
 
   @ApiProperty()
   account: AccountDto;
 
   @ApiProperty()
-  amount: any;
+  amount: string;
 
   @ApiProperty()
-  cancelUrl: any;
+  cancelUrl: string;
 
   @ApiProperty()
-  currency: any;
+  currency: string;
 
   @ApiProperty()
   customer: CustomerDto;
 
   @ApiProperty()
-  description: any;
+  description: string;
 
   @ApiProperty()
-  displayAmount: any;
+  displayAmount: string;
 
   @ApiProperty()
-  env: any;
+  env: string;
 
   @ApiProperty()
-  localUrl: any;
+  localUrl: string;
 
   @ApiProperty()
-  merchantId: any;
+  merchantId: string;
 
   @ApiProperty()
-  merchantReference: any;
+  merchantReference: string;
 
   @ApiProperty()
   metadata: MetaDataDto;
 
   @ApiProperty()
-  minimumBalance: any;
+  minimumBalance: number;
 
   @ApiProperty()
   paymentType: string;
@@ -55,7 +55,7 @@ export class EstablishDto {
   recurrence: RecurrenceDto;
 
   @ApiProperty()
-  returnUrl: any;
+  returnUrl: string;
 
   @ApiProperty()
   timeZone: any;
@@ -68,5 +68,5 @@ export class EstablishDto {
 }
 
 export interface EstablishDto {
-  [key: string]: string | object;
+  [key: string]: number | object | string;
 }

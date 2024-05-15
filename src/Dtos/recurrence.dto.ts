@@ -2,23 +2,23 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class RecurrenceDto {
   @ApiProperty()
-  automaticCapture: any;
+  automaticCapture: boolean;
 
   @ApiProperty()
-  endDate: any;
+  endDate?: number; // Unix Timestamp
 
   @ApiProperty()
-  frequency: any;
+  frequency?: number;
 
   @ApiProperty()
-  frequencyUnit: any;
+  frequencyUnit: number;
 
   @ApiProperty()
-  frequencyUnitType: any;
+  frequencyUnitType: number;
 
   @ApiProperty()
-  recurringAmount: any;
+  recurringAmount: string;
 
   @ApiProperty()
-  startDate: any;
+  startDate?: number; // Unix Timestamp
 }
