@@ -10,7 +10,7 @@ async function bootstrap() {
   });
 
   const config = new DocumentBuilder()
-    .setTitle('Alpha Merchante Backend Demonstration ')
+    .setTitle('Alpha Merchant Backend Demonstration ')
     .setDescription('Simple backend demonstrate how to integrate with Trustly')
     .setVersion('1.0')
     .build();
